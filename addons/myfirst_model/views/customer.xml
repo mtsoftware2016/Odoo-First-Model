@@ -15,6 +15,35 @@
         </field>
     </record>
 
+    <!-- Group-->
+    <record id="customer_search_view" model="ir.ui.view">
+        <field name="name">customer.search.view</field>
+         <field name="model">customer</field>
+        <field name="arch" type="xml">
+            <search string="customer search">
+                <group expand="1" string="Group by ..">
+                    <filter name="name" string="Name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+  <!-- Filter -->
+                <!-- < age =20 -->
+                <filter string="My Second Filter" name="age" domain="[('age', '&lt;', 20)]">
+
+                </filter>
+                          <!-- >age =20 -->
+                    <filter string="My First Filter" name="age" domain="[('age', '&gt;', 20)]">
+
+                </filter>
+
+                <!-- Date searching-->
+                <field name="name" string="Name" filter_domain="[('name','ilike',self)]"/>
+                <field name="age" string="Age" filter_domain="[('age','ilike',self)]"/>
+
+
+            </search>
+        </field>
+
+    </record>
+
     <!-- Form View Of Customer  -->
     <record id="customer_form_view" model="ir.ui.view">
         <field name="name">customer.form.view</field>
