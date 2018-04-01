@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="example_page" name="Example">
+        <t t-call="website.layout">
+
+                    <center>
+                        <h3>Customer details page</h3>
+                    </center>
+                    <center>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th width="15%" height="55px">Name</th>
+                                    <th width="30%" height="55px">Last Name</th>
+                                    <th width="21%" height="55px">Age</th>
+                                      <th width="21%" height="55px">Rule</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="customers" t-as="customer">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="customer.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="customer.lastName"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="customer.age"></t>
+                                        </td>
+                                        <td>
+                                                            <t t-if="customer.age>=25">
+                                                                yes
+
+                                                            </t>
+
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </center>
+                </t>
+
+    </template>
+</odoo>
